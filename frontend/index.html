@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Vesmirna hra</title>
+        <style>
+            #alert {
+                font-size: 14px;
+                color: #333;
+                box-sizing: border-box;
+                position: fixed;
+                display: none;
+                text-align: center;
+                padding: 30px;
+                width: 20%;
+                height: 10%;
+                top: 5%;
+                left: 40%;
+                background-color: red;
+                z-index: 3;
+            }
+            #alert_text {
+                text-align: center;
+                box-sizing: border-box;
+                margin: 0 0 10px;
+                top: 50%;
+                color: white;
+                font-family: Helvetica;
+                font-size: large;
+            }
+            #space table { border: none; background: #202020; }
+            #space td {
+                width: 40px;
+                height: 40px;
+                border: 1px solid black;
+                text-align: center;
+                vertical-align: middle;
+                color: white;
+                background: #202020;
+            }
+
+            #space .alien {background: green;}
+            #space .ship {background: white;}
+            #space .missile {background: red;}
+        </style>
+        <style id="cssspace"></style>
+        <style id="cssalien"></style>
+        <style id="cssship"></style>
+        <style id="cssmissile"></style>
+    </head>
+    <body>
+        <h1>Vesmirna hra</h1>
+        <div id="space">
+            <table cellspacing="0" cellpadding="0"></table>
+        </div>
+        <br />
+        <button id="start">Start</button>
+        <div>
+            <button id="spectate">Spectate</button>
+            <input id="spectateInput" type="number">
+        </div>
+        <div>
+            <button id="connect">Connect</button>
+            <input id="connectInput" type="number">
+        </div>
+        <div id="gameList">
+            <button id="refreshGames">List All Games</button>
+            <div id="gameIds"></div>
+        </div>
+        <div id="alert">
+            <p id="alert_text">Error</p>
+        </div>
+        <!-- <button id="disconnect">disconnect</button> -->
+        <script src="index.js"></script>
+        <script src="mod.js"></script>
+    </body>
+</html> 
