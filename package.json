@@ -1,0 +1,20 @@
+{
+  "name": "zadanie2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andser99/VAVJS_2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Andser99/VAVJS_2/issues"
+  },
+  "homepage": "https://github.com/Andser99/VAVJS_2#readme"
+}
