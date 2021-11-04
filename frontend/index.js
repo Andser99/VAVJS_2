@@ -1,4 +1,4 @@
-const socket = new WebSocket(window.location.href.startsWith("https://spejsinvejder") ? "ws://spejsinvejder.herokuapp.com:8082" : "ws://localhost:8082");
+const socket = new WebSocket(window.location.href.startsWith("https://spejsinvejder") ? "wss://spejsinvejder.herokuapp.com:8082" : "wss://localhost:8082");
 var gameID = undefined;
 var requestTimer;
 var spectating = false;
