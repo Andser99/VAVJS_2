@@ -24,6 +24,7 @@ MISSILE_IMAGE.src = "https://i.imgur.com/ip6xnos.png";
 // if (debug) MISSILE_IMAGE.src = "missile_TEST.png";
 
 var score = 0;
+var topscore = 0;
 
 // Initialize canvas
 let canvas = document.createElement("canvas");
@@ -43,7 +44,7 @@ RESET_BUTTON.innerText = "Reset";
 document.body.appendChild(RESET_BUTTON);
 RESET_BUTTON.addEventListener("click", (e) => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    socket.send(JSON.stringify({'reset': true, 'gameid': gameID}));
+    socket.send(JSON.stringify({'state': 'ResetGame', 'gameid': gameID}));
     if (debug) console.log("game has been reset");
 });
 
@@ -76,8 +77,16 @@ function indexToCoords(index) {
     return {"x": (index % (GRID_WIDTH)) * IMAGE_SIZE, "y": Math.floor(index / (GRID_HEIGHT)) * IMAGE_SIZE};
 }
 
+function checkTopScore() {
+    if (currentUser != undefined && currentUser['topscore'] < topscore) {
+        currentUser['topscore'] = topscore;
+        socket.send(JSON.stringify({'state': 'Highscore','user': currentUser}));
+    }
+}
+
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    checkTopScore();
     if (result == 'won') {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = "green";
@@ -121,7 +130,7 @@ function draw() {
         // Draw score and level
         ctx.fillStyle = "green";
         ctx.font = "20px Monospace";
-        ctx.fillText(`LEVEL:${level} SCORE:${score}`, 5, 20);
+        ctx.fillText(`LEVEL:${level} SCORE:${score}              TOP:${topscore}`, 5, 20);
     
         if (debug) console.log("Next animation frame");
     }

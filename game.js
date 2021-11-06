@@ -6,8 +6,9 @@ class Game {
     static SCORE_PER_KILL = 10;
     constructor(id) {
         this.id = id;
+        this.running = false;
         this.level = 1;
-        this.speed = 2048;
+        this.speed = 512;
         this.a = 0;
         this.aliens = [...Game.aliens1];
         this.ship = [104,114,115,116];
@@ -22,7 +23,33 @@ class Game {
         this.json["result"] = this.result;
         this.json["score"] = this.score;
         this.json["level"] = this.level;
+        this.json["topscore"] = 0; 
         this.startGame();
+    }
+
+    resetGame() {
+        if (this.loop1 != undefined) {
+            clearInterval(this.loop2);
+        }
+        if (this.loop2 != undefined) {
+            clearInterval(this.loop1);
+        }
+        this.running = false;
+        this.level = 1;
+        this.speed = 512;
+        this.a = 0;
+        this.aliens = [...Game.aliens1];
+        this.ship = [104,114,115,116];
+        this.missiles = [];
+        this.result = undefined;
+        this.score = 0;
+        this.direction = 1;
+        this.json["aliens"] = this.aliens;
+        this.json["missiles"] = this.missiles;
+        this.json["ship"] = this.ship;
+        this.json["result"] = this.result;
+        this.json["score"] = this.score;
+        this.json["level"] = this.level;
     }
 
     getJson() {
@@ -37,12 +64,14 @@ class Game {
     
     startGame() {
         this.result = undefined;
+        this.running = true;
         this.loop1 = setInterval(() => {
             this.moveAliens();
             this.moveMissiles();
             this.checkCollisionsMA();
             if(this.a%4==3) this.lowerAliens();
             if(this.RaketaKolidujeSVotrelcom()) {
+                this.running = false;
                 clearInterval(this.loop2);
                 clearInterval(this.loop1);
                 this.missiles = [];
@@ -52,6 +81,7 @@ class Game {
         },this.speed);
         this.loop2 = setInterval(() => {
             if(this.aliens.length === 0) {
+                this.running = false;
                 clearInterval(this.loop2);
                 clearInterval(this.loop1);
                 this.missiles = [];
@@ -114,6 +144,7 @@ class Game {
                 var alienIndex = this.aliens.indexOf(this.missiles[i]);
                 this.aliens.splice(alienIndex, 1);
                 this.score += Game.SCORE_PER_KILL;
+                if (this.score > this.json["topscore"]) this.json["topscore"] = this.score;
                 this.missiles.splice(i, 1);
             }
         }
@@ -135,6 +166,7 @@ class Game {
     }
 
     handleKey(e) {
+        if (!this.running) return;
         if (this.result != undefined) {
             return;
         }

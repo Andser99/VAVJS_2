@@ -4,6 +4,9 @@
         <meta charset="utf-8" />
         <title>Vesmirna hra</title>
         <style>
+            .inlineP {
+                display: inline-block;
+            }
             #alert {
                 font-size: 14px;
                 color: #333;
@@ -12,8 +15,8 @@
                 display: none;
                 text-align: center;
                 padding: 30px;
-                width: 20%;
-                height: 10%;
+                width: 40%;
+                height: 20%;
                 top: 5%;
                 left: 40%;
                 background-color: red;
@@ -69,6 +72,30 @@
         </div>
         <div id="alert">
             <p id="alert_text">Error</p>
+        </div>
+        <div id="register">
+            <p class="inlineP">Username</p>
+            <input id="registerLogin" type="text">
+            <p class="inlineP">Email</p>
+            <input id="registerEmail" type="text">
+            <p class="inlineP">Full Name</p>
+            <input id="registerName" type="text">
+            <p class="inlineP">Password</p>
+            <input id="registerPassword" type="password">
+            <p class="inlineP">Repeat Password</p>
+            <input id="registerPasswordAgain" type="password">
+            <button id="registerSend">Register</button>
+        </div>
+        <div id="login">
+            <p class="inlineP">Username</p>
+            <input id="loginLogin" type="text">
+            <p class="inlineP">Password</p>
+            <input id="loginPassword" type="password">
+            <button id="loginSend">Login</button>
+        </div>
+        <div>
+            <p class="inlineP">Current User: </p><p class="inlineP" id="currentUser">N/A</p>
+            <p class="inlineP">User top score: </p><p class="inlineP" id="currentUserTopScore">N/A</p>
         </div>
         <!-- <button id="disconnect">disconnect</button> -->
         <script src="index.js"></script>

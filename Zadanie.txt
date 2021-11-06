@@ -1,16 +1,16 @@
 1+	prepisanie hlavnej logiky hry na server-side riesenie	1
 2+	posielanie stlaceni klaves na server a ich spracovanie na serveri	1
 3+	vratenie aktualnej plochy hry zo serveru pomocou websocketov a vykreslenie aktualnej plochy cez canvas	1
-4	vypisovanie aktualneho a najlepsieho skore a levelu zo serveru (per user/session)	0
+4+	vypisovanie aktualneho a najlepsieho skore a levelu zo serveru (per user/session)	1
 5+	umoznenie viacerych nezavislych hier paralelne (aspon 1000)	1
 6+	umoznit ovladanie pomocou tlacitok zobrazenych na stranke (aj z inej session, cez zdielany pin)	1
-7	na stranke umoznit registraciu a prihlasenie pouzivatelov - e-mail, login, heslo (2x pri registracii), meno a priezvisko	0
+7+	na stranke umoznit registraciu a prihlasenie pouzivatelov - e-mail, login, heslo (2x pri registracii), meno a priezvisko	1
 8+	zdielanie session medzi backendom (server) a frontedom (browser)	1
-9	serverside ukladanie max skore a levelu pre prihlaseneho pouzivatela a neprihlaseneho pouzivatela	1
+9+	serverside ukladanie max skore a levelu pre prihlaseneho pouzivatela a neprihlaseneho pouzivatela	1
 10	admin rozhranie zobrazujuce tabulku pouzivatelov a aktualnych hier (meno ak je, session, pin) len pre pouzivatela "admin"	0
 11	import a export CSV udajov pouzivatelov (meno, email, heslo, max score, max level) len pre pouzivatela "admin"	0
 12+	zobrazit zoznam aktualne hranych hier s moznostou sledovania pre vsetkych pouzivatelov	1
 13	vyuzitie objektovej reprezentacie struktury stranky	0
 14+	server vracia 1 staticku stranku (index.html, obrazky, js subory), ostatna komunikacia (plocha, interakcia) pouziva JSON	1
-15	kontrola vstupov (email, login, heslo, kod, meno a priezvisko)	1
+15+	kontrola vstupov (email, login, heslo, kod, meno a priezvisko)	1
  	SUM	15
