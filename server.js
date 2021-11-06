@@ -6,7 +6,6 @@ const express = require('express');
 // const { json } = require('express');
 const app = express();
 const Game = require('./game.js');
-const { getPackedSettings } = require('http2');
 app.use(express.static('frontend'));
 
 const wss = new websocket.Server({ port: 8082 });
@@ -58,6 +57,9 @@ wss.on('connection', (ws) => {
                     }
                     else if (GameList[json['gameid']] != undefined) {
                         if (GameList[json['gameid']].running == false) {
+                            if (!GameList[json['gameid'].running]) {
+                                GameList[json['gameid']].resetGame();
+                            }
                             GameList[json['gameid']].startGame();
                         }
                     }

@@ -48,6 +48,29 @@ RESET_BUTTON.addEventListener("click", (e) => {
     if (debug) console.log("game has been reset");
 });
 
+const CONNECT_CONTROL_P = document.createElement("p");
+CONNECT_CONTROL_P.innerText = "Buttons for connect control";
+document.body.appendChild(CONNECT_CONTROL_P);
+
+const LEFT_BUTTON = document.createElement("button");
+LEFT_BUTTON.innerText = "LEFT";
+document.body.appendChild(LEFT_BUTTON);
+LEFT_BUTTON.addEventListener("click", (e) => {
+    checkKey(new KeyboardEvent('keypress',{'keyCode':'37'}));
+});
+const SPACE_BUTTON = document.createElement("button");
+SPACE_BUTTON.innerText = "SHOOT";
+document.body.appendChild(SPACE_BUTTON);
+SPACE_BUTTON.addEventListener("click", (e) => {
+    checkKey(new KeyboardEvent('keypress',{'keyCode':'32'}));
+});
+const RIGHT_BUTTON = document.createElement("button");
+RIGHT_BUTTON.innerText = "RIGHT";
+document.body.appendChild(RIGHT_BUTTON);
+RIGHT_BUTTON.addEventListener("click", (e) => {
+    checkKey(new KeyboardEvent('keypress',{'keyCode':'39'}));
+});
+
 // Toggle music
 var soundPlaying = false;
 

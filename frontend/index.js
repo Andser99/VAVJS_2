@@ -11,24 +11,32 @@ function customAlert(text, backgroundColor) {
     alertElement.style.backgroundColor = backgroundColor;
     alertElement.style.display = "block";
     fadeOut(alertElement);
-  }
-  function fadeOut(element) {
+}
+function fadeOut(element) {
     if (element.value != 'fading') {
-      var op = 1;  // initial opacity
-      element.value = 'fading';
-      var timer = setInterval(function () {
-        if (op <= 0.03) {
-          clearInterval(timer);
-          element.style.display = 'none';
-          element.style.opacity = '1';
-          element.value = '';
-        }
-        element.style.opacity = op;
-        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op -= op / op / op / op / op / op * 0.005;
-      }, 100);
+        var op = 1;  // initial opacity
+        element.value = 'fading';
+        var timer = setInterval(function () {
+            if (op <= 0.03) {
+                clearInterval(timer);
+                element.style.display = 'none';
+                element.style.opacity = '1';
+                element.value = '';
+            }
+            element.style.opacity = op;
+            element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+            op -= op / op / op / op / op / op * 0.005;
+        }, 100);
     }
-  }
+}
+
+socket.onerror = (error) => {
+    console.log(error);
+}
+
+socket.onclose = (event) => {
+    console.log(event);
+}
 
 socket.onopen = (event) => {
     console.log("opened socket on ws://localhost:8082 with ID: " + socket.id);
