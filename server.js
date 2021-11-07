@@ -1,9 +1,8 @@
-// import { WebSocketServer } from 'ws';
+// Andrej Byrtus
 const websocket = require('ws');
 const fs = require('fs');
 const crypto = require('crypto');
 const express = require('express');
-// const { json } = require('express');
 const app = express();
 const Game = require('./game.js');
 app.use(express.static('frontend'));

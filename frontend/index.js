@@ -1,3 +1,4 @@
+// Andrej Byrtus
 const socket = new WebSocket("ws://localhost:8082");
 var gameID = undefined;
 var requestTimer;
@@ -189,6 +190,3 @@ document.getElementById('loginSend').addEventListener('click', (e) => {
     loginData['login']['password'] = document.getElementById('loginPassword').value;
     socket.send(JSON.stringify(loginData));
 });
-// document.getElementById('disconnect').addEventListener('keydown',function(e){
-//     socket.close();
-// });

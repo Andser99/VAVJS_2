@@ -1,3 +1,4 @@
+// Andrej Byrtus
 var debug = false;
 
 
